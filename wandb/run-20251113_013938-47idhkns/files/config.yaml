@@ -1,0 +1,95 @@
+_wandb:
+    value:
+        cli_version: 0.23.0
+        e:
+            0tnminu0vjsf9caw8ypms56f3fdk44zf:
+                args:
+                    - --dataset
+                    - fashion
+                    - --hidden
+                    - "256"
+                    - "128"
+                    - --activations
+                    - relu
+                    - relu
+                    - --optimizer
+                    - adam
+                    - --lr
+                    - "1e-3"
+                    - --batch_size
+                    - "128"
+                    - --epochs
+                    - "10"
+                    - --l2
+                    - "1e-4"
+                cpu_count: 14
+                cpu_count_logical: 20
+                cudaVersion: "12.8"
+                disk:
+                    /:
+                        total: "1022782074880"
+                        used: "512826642432"
+                email: jfortes@tudelft.nl
+                executable: C:\Users\joluf\OneDrive\Escritorio\DL DTU\dtu-02456-numpy-ffnn-group27\.venv\Scripts\python.exe
+                git:
+                    commit: af26e1d047e9c31ccf0448101a8c16783b44e3bf
+                    remote: https://github.com/jfortes27/dtu-02456-numpy-ffnn-group27.git
+                gpu: NVIDIA RTX 3000 Ada Generation Laptop GPU
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ada
+                      cudaCores: 4608
+                      memoryTotal: "8585740288"
+                      name: NVIDIA RTX 3000 Ada Generation Laptop GPU
+                      uuid: GPU-dbb5f612-a1a5-c73d-6b4f-4163c28f86bd
+                host: JoseLFR-HP
+                memory:
+                    total: "16794304512"
+                os: Windows-11-10.0.26100-SP0
+                program: -m src.run_experiment
+                python: CPython 3.12.3
+                root: C:\Users\joluf\OneDrive\Escritorio\DL DTU\dtu-02456-numpy-ffnn-group27
+                startedAt: "2025-11-13T00:39:38.616119Z"
+                writerId: 0tnminu0vjsf9caw8ypms56f3fdk44zf
+        m: []
+        python_version: 3.12.3
+        t:
+            "1":
+                - 5
+                - 53
+            "2":
+                - 5
+                - 53
+            "3":
+                - 2
+                - 16
+            "4": 3.12.3
+            "5": 0.23.0
+            "8":
+                - 3
+            "12": 0.23.0
+            "13": windows-amd64
+activations:
+    value:
+        - relu
+        - relu
+batch_size:
+    value: 128
+epochs:
+    value: 10
+hidden:
+    value:
+        - 256
+        - 128
+l2:
+    value: 0.0001
+lr:
+    value: 0.001
+optimizer:
+    value: adam
+seed:
+    value: 42
+wandb_project:
+    value: numpy-ffnn-group27
+weight_init:
+    value: he

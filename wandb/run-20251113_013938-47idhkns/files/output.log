@@ -1,0 +1,22 @@
+epoch 000 | train_acc=0.862 val_acc=0.858 train_loss=0.390 val_loss=0.405
+epoch 001 | train_acc=0.869 val_acc=0.860 train_loss=0.357 val_loss=0.382
+epoch 002 | train_acc=0.887 val_acc=0.875 train_loss=0.316 val_loss=0.349
+epoch 003 | train_acc=0.883 val_acc=0.869 train_loss=0.317 val_loss=0.360
+epoch 004 | train_acc=0.888 val_acc=0.873 train_loss=0.305 val_loss=0.348
+epoch 005 | train_acc=0.889 val_acc=0.870 train_loss=0.294 val_loss=0.349
+epoch 006 | train_acc=0.909 val_acc=0.888 train_loss=0.245 val_loss=0.311
+epoch 007 | train_acc=0.911 val_acc=0.887 train_loss=0.240 val_loss=0.311
+epoch 008 | train_acc=0.904 val_acc=0.881 train_loss=0.256 val_loss=0.333
+epoch 009 | train_acc=0.902 val_acc=0.877 train_loss=0.254 val_loss=0.334
+
+Confusion matrix on validation set:
+[[ 909    2   12   53    4    0  318    0   14    0]
+ [   2 1360    2   28    3    0    5    0    1    0]
+ [  11    0 1136   24  116    0  138    0    5    0]
+ [   7    0    8 1347   21    0   52    0    4    0]
+ [   1    0  146   83  959    0  169    0    4    0]
+ [   0    0    0    1    0 1416    0   21    2   15]
+ [  69    0   82   47   57    0 1148    0    8    0]
+ [   0    0    0    0    0   23    0 1381    0   12]
+ [   1    0    4    6    4    2   12    4 1339    0]
+ [   0    0    0    0    0   18    0   98    0 1286]]

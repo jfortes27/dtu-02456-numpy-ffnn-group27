@@ -1,0 +1,52 @@
+{
+    "os": "Windows-11-10.0.26100-SP0",
+    "python": "3.12.3",
+    "heartbeatAt": "2025-11-12T23:16:14.013545",
+    "startedAt": "2025-11-12T23:16:11.262699",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "<python with no main file>",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/jfortes27/dtu-02456-numpy-ffnn-group27.git",
+        "commit": "af26e1d047e9c31ccf0448101a8c16783b44e3bf"
+    },
+    "email": "jfortes@tudelft.nl",
+    "root": "C:/Users/joluf/OneDrive/Escritorio/DL DTU/dtu-02456-numpy-ffnn-group27",
+    "host": "JoseLFR-HP",
+    "username": "joluf",
+    "executable": "C:\\Users\\joluf\\OneDrive\\Escritorio\\DL DTU\\dtu-02456-numpy-ffnn-group27\\.venv\\Scripts\\python.exe",
+    "cpu_count": 14,
+    "cpu_count_logical": 20,
+    "cpu_freq": {
+        "current": 2400.0,
+        "min": 0.0,
+        "max": 2400.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 2400.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 952.5400352478027,
+            "used": 477.3747901916504
+        }
+    },
+    "gpu": "NVIDIA RTX 3000 Ada Generation Laptop GPU",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA RTX 3000 Ada Generation Laptop GPU",
+            "memory_total": 8585740288
+        }
+    ],
+    "memory": {
+        "total": 15.640914916992188
+    }
+}

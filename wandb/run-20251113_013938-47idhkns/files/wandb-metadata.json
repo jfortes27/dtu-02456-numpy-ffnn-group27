@@ -1,0 +1,58 @@
+{
+  "os": "Windows-11-10.0.26100-SP0",
+  "python": "CPython 3.12.3",
+  "startedAt": "2025-11-13T00:39:38.616119Z",
+  "args": [
+    "--dataset",
+    "fashion",
+    "--hidden",
+    "256",
+    "128",
+    "--activations",
+    "relu",
+    "relu",
+    "--optimizer",
+    "adam",
+    "--lr",
+    "1e-3",
+    "--batch_size",
+    "128",
+    "--epochs",
+    "10",
+    "--l2",
+    "1e-4"
+  ],
+  "program": "-m src.run_experiment",
+  "git": {
+    "remote": "https://github.com/jfortes27/dtu-02456-numpy-ffnn-group27.git",
+    "commit": "af26e1d047e9c31ccf0448101a8c16783b44e3bf"
+  },
+  "email": "jfortes@tudelft.nl",
+  "root": "C:\\Users\\joluf\\OneDrive\\Escritorio\\DL DTU\\dtu-02456-numpy-ffnn-group27",
+  "host": "JoseLFR-HP",
+  "executable": "C:\\Users\\joluf\\OneDrive\\Escritorio\\DL DTU\\dtu-02456-numpy-ffnn-group27\\.venv\\Scripts\\python.exe",
+  "cpu_count": 14,
+  "cpu_count_logical": 20,
+  "gpu": "NVIDIA RTX 3000 Ada Generation Laptop GPU",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "1022782074880",
+      "used": "512826642432"
+    }
+  },
+  "memory": {
+    "total": "16794304512"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA RTX 3000 Ada Generation Laptop GPU",
+      "memoryTotal": "8585740288",
+      "cudaCores": 4608,
+      "architecture": "Ada",
+      "uuid": "GPU-dbb5f612-a1a5-c73d-6b4f-4163c28f86bd"
+    }
+  ],
+  "cudaVersion": "12.8",
+  "writerId": "0tnminu0vjsf9caw8ypms56f3fdk44zf"
+}
