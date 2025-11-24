@@ -1,11 +1,11 @@
 import argparse, os
 import numpy as np
 from .train import train
-from .data_loaders import load_fashion_mnist
+from .data_loaders import load_fashion_mnist, load_cifar10
 
 def main():
     p = argparse.ArgumentParser(description="Run NumPy FFNN experiment")
-    p.add_argument("--dataset", type=str, default="fashion", choices=["fashion"], help="Dataset to use")
+    p.add_argument("--dataset", type=str, default="fashion", choices=["fashion", "cifar"], help="Dataset to use")
     p.add_argument("--hidden", type=int, nargs="+", default=[128], help="Hidden layer sizes, e.g. --hidden 256 128")
     p.add_argument("--activations", type=str, nargs="+", default=["relu"], help="Activations for hidden layers")
     p.add_argument("--optimizer", type=str, default="adam", choices=["adam", "sgd"])
@@ -16,14 +16,18 @@ def main():
     p.add_argument("--weight_init", type=str, default="he", choices=["he", "glorot"])
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--wandb_project", type=str, default="numpy-ffnn-group27")
+
     args = p.parse_args()
 
     np.random.seed(args.seed)
 
     if args.dataset == "fashion":
         X_tr, y_tr, X_va, y_va = load_fashion_mnist(val_ratio=0.2, seed=args.seed)
+    elif args.dataset == "cifar":
+        X_tr, y_tr, X_va, y_va = load_cifar10(val_ratio=0.2, seed=args.seed)
     else:
-        raise ValueError("Unsupported dataset")
+        raise ValueError(f"Unsupported dataset: {args.dataset}")
+    
 
     config = {
         "hidden": args.hidden,
