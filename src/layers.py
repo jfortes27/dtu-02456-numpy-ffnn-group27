@@ -42,27 +42,51 @@ class Dense:
 
 class FFNN:
     
-    def __init__(self, dims: List[int], activations: List[str], weight_init: str = "he"):
+    def __init__(self, dims: List[int], activations: List[str], weight_init: str = "he",dropout_rate: float = 0.0):
         assert len(dims) - 1 == len(activations), "Provide activations per layer."
-        self.layers = [
-            Dense(dims[i], dims[i + 1], activation=activations[i], weight_init=weight_init)
-            for i in range(len(activations))
-        ]
-
+        self.layers = []
+        L = len(dims) - 1
+        for i in range(L):
+            #Dense layer
+            self.layers.append(
+                Dense(
+                    dims[i],
+                    dims[i+1],
+                    activation=activations[i],
+                    weight_init=weight_init
+                )
+            )
+            # Dropout between hidden layers (NOT after last layer)
+            if dropout_rate > 0 and i < L - 1:
+                self.layers.append(Dropout(p=dropout_rate))
+            
     def forward(self, x: np.ndarray) -> np.ndarray:
         h = x
         for L in self.layers:
             h = L.forward(h)
         return h
+    
 
     def backward(self, grad_last: np.ndarray, l2: float = 0.0):
         grads = {}
         g = grad_last
         for i in reversed(range(len(self.layers))):
             g, g_i = self.layers[i].backward(g, l2=l2)
-            grads[f"W{i}"] = g_i["W"]
-            grads[f"b{i}"] = g_i["b"]
+            # Only Dense layers have weights
+            if "W" in g_i:
+                grads[f"W{i}"] = g_i["W"]
+                grads[f"b{i}"] = g_i["b"]
         return grads
+    
+    def train_mode(self):
+        for L in self.layers:
+            if hasattr(L, "training"):
+                L.training = True
+
+    def eval_mode(self):
+        for L in self.layers:
+            if hasattr(L, "training"):
+                L.training = False
 
     @property
     def params(self):
@@ -71,3 +95,27 @@ class FFNN:
             P[f"W{i}"] = L.W
             P[f"b{i}"] = L.b
         return P
+    
+    
+
+class Dropout:
+    def __init__(self, p=0.5):
+        self.p = p
+        self.mask = None
+        self.training = True
+
+    def forward(self, x):
+        if self.training:
+            self.mask = (np.random.rand(*x.shape) > self.p).astype(x.dtype)
+            return x * self.mask / (1.0 - self.p)
+        else:
+            return x
+
+    def backward(self, grad_out, l2=0.0):
+        if self.training:
+            return grad_out * self.mask / (1.0 - self.p), {}
+        else:
+            return grad_out, {}
+
+    def parameters(self):
+        return {}

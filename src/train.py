@@ -47,7 +47,7 @@ def train(
     activs = list(config["activations"]) + ["linear"]
     weight_init = config.get("weight_init", "he")
 
-    net = FFNN(dims, activs, weight_init=weight_init)
+    net = FFNN(dims, activs, weight_init=weight_init, dropout_rate=float(config.get("dropout_rate", 0.0)))
 
     if config.get("optimizer", "adam").lower() == "adam":
         opt = Adam(lr=config["lr"])
@@ -61,6 +61,8 @@ def train(
         run = None
 
     def evaluate(X, y):
+        # set eval mode (for dropout, batchnorm, etc.)
+        net.eval_mode()
         logits = net.forward(X)
         probs = softmax(logits)
         y_pred = probs.argmax(axis=1)
@@ -70,7 +72,9 @@ def train(
         return acc, loss
 
     for epoch in range(int(config["epochs"])):
-        # training epoch
+        # set train mode (for dropout, batchnorm, etc.)
+        net.train_mode() 
+        # training epoch        
         for xb, yb in batch_iter(X_train, y_train, int(config["batch_size"]), shuffle=True, seed=epoch + seed):
             yb_oh = one_hot(yb, n_out)
             logits = net.forward(xb)
@@ -78,7 +82,8 @@ def train(
             # CE + L2
             l2 = float(config.get("l2", 0.0))
             ce = cross_entropy(probs, yb_oh)
-            l2_term = 0.5 * l2 * sum((L.W**2).sum() for L in net.layers)
+            l2_term = 0.5 * l2 * sum((L.W**2).sum() for L in net.layers if hasattr(L, "W"))
+
             loss = ce + l2_term
 
             # gradient at logits for softmax+CE: (p - y)/N
@@ -88,8 +93,9 @@ def train(
             # pack params in a dict to pass to optimizer
             params = {}
             for i, L in enumerate(net.layers):
-                params[f"W{i}"] = L.W
-                params[f"b{i}"] = L.b
+                if hasattr(L, "W"):
+                    params[f"W{i}"] = L.W
+                    params[f"b{i}"] = L.b
             opt.step(params, grads)
 
         train_acc, train_loss = evaluate(X_train, y_train)
@@ -113,6 +119,8 @@ def train(
     # --- after final epoch ---
     from .utils import confusion_matrix_from_probs
 
+    
+    net.eval_mode()
     probs_val = softmax(net.forward(X_val))
     cm = confusion_matrix_from_probs(probs_val, y_val)
     print("\nConfusion matrix on validation set:")
