@@ -14,7 +14,7 @@ def load_fashion_mnist(val_ratio: float = 0.2, seed: int = 42) -> Tuple[np.ndarr
 
 
     X_tr, y_tr, X_te, y_te = train_test_split(X, y, test_ratio=0.2, seed=seed) 
-    X_tr, y_tr, X_va, y_va = train_val_split(X, y, val_ratio=val_ratio, seed=seed)
+    X_tr, y_tr, X_va, y_va = train_val_split(X_tr, y_tr, val_ratio=val_ratio, seed=seed)
     return X_tr, y_tr, X_va, y_va, X_te, y_te
 
 def load_cifar10(val_ratio: float = 0.2, seed: int = 42):
