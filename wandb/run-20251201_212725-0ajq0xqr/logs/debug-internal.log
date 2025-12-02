@@ -1,0 +1,20 @@
+{"time":"2025-12-01T21:27:27.5591981+01:00","level":"INFO","msg":"stream: starting","core version":"0.23.0"}
+{"time":"2025-12-01T21:27:29.5258158+01:00","level":"INFO","msg":"stream: created new stream","id":"0ajq0xqr"}
+{"time":"2025-12-01T21:27:29.5278471+01:00","level":"INFO","msg":"handler: started","stream_id":"0ajq0xqr"}
+{"time":"2025-12-01T21:27:29.529544+01:00","level":"INFO","msg":"stream: started","id":"0ajq0xqr"}
+{"time":"2025-12-01T21:27:29.529544+01:00","level":"INFO","msg":"writer: started","stream_id":"0ajq0xqr"}
+{"time":"2025-12-01T21:27:29.529544+01:00","level":"INFO","msg":"sender: started","stream_id":"0ajq0xqr"}
+{"time":"2025-12-02T00:12:41.2336345+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jfortes-tu-delft/numpy-ffnn-group27/0ajq0xqr/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-12-02T00:12:43.7201645+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jfortes-tu-delft/numpy-ffnn-group27/0ajq0xqr/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-12-02T00:12:44.6013583+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-12-02T05:33:17.1826043+01:00","level":"WARN","msg":"sender: taking a long time","seconds":19232.2619792,"work":"WorkRecord(*service_go_proto.Request_StopStatus); Control(local:true mailbox_slot:\"a8adbhe474rg\" connection_id:\"1(127.0.0.1:58477)\")"}
+{"time":"2025-12-02T05:33:17.1933989+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jfortes-tu-delft/numpy-ffnn-group27/0ajq0xqr/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-12-02T05:33:17.1933989+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-12-02T05:33:21.6724924+01:00","level":"INFO","msg":"sender: succeeded after taking longer than expected","seconds":19237.0711818,"work":"WorkRecord(*service_go_proto.Request_StopStatus); Control(local:true mailbox_slot:\"a8adbhe474rg\" connection_id:\"1(127.0.0.1:58477)\")"}
+{"time":"2025-12-02T10:29:35.5256554+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jfortes-tu-delft/numpy-ffnn-group27/0ajq0xqr/file_stream\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-12-02T11:20:03.6690738+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-02T11:20:03.9691554+01:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-12-02T11:20:04.0010248+01:00","level":"INFO","msg":"stream: closing","id":"0ajq0xqr"}
+{"time":"2025-12-02T11:20:04.0010248+01:00","level":"INFO","msg":"handler: closed","stream_id":"0ajq0xqr"}
+{"time":"2025-12-02T11:20:04.0023558+01:00","level":"INFO","msg":"sender: closed","stream_id":"0ajq0xqr"}
+{"time":"2025-12-02T11:20:04.0023558+01:00","level":"INFO","msg":"stream: closed","id":"0ajq0xqr"}

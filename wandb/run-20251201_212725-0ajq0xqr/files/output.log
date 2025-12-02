@@ -1,0 +1,37 @@
+epoch 000 | train_acc=0.351 val_acc=0.346 train_loss=1.819 val_loss=1.838
+epoch 001 | train_acc=0.412 val_acc=0.396 train_loss=1.659 val_loss=1.682
+epoch 002 | train_acc=0.444 val_acc=0.433 train_loss=1.571 val_loss=1.607
+epoch 003 | train_acc=0.473 val_acc=0.451 train_loss=1.493 val_loss=1.547
+epoch 004 | train_acc=0.486 val_acc=0.459 train_loss=1.446 val_loss=1.510
+epoch 005 | train_acc=0.499 val_acc=0.471 train_loss=1.411 val_loss=1.485
+epoch 006 | train_acc=0.459 val_acc=0.437 train_loss=1.477 val_loss=1.555
+epoch 007 | train_acc=0.519 val_acc=0.490 train_loss=1.361 val_loss=1.458
+epoch 008 | train_acc=0.528 val_acc=0.489 train_loss=1.327 val_loss=1.438
+epoch 009 | train_acc=0.540 val_acc=0.492 train_loss=1.294 val_loss=1.422
+epoch 010 | train_acc=0.532 val_acc=0.484 train_loss=1.303 val_loss=1.447
+epoch 011 | train_acc=0.551 val_acc=0.500 train_loss=1.264 val_loss=1.415
+epoch 012 | train_acc=0.568 val_acc=0.508 train_loss=1.229 val_loss=1.400
+epoch 013 | train_acc=0.582 val_acc=0.520 train_loss=1.193 val_loss=1.374
+epoch 014 | train_acc=0.586 val_acc=0.517 train_loss=1.174 val_loss=1.367
+epoch 015 | train_acc=0.584 val_acc=0.513 train_loss=1.173 val_loss=1.377
+epoch 016 | train_acc=0.600 val_acc=0.520 train_loss=1.142 val_loss=1.361
+epoch 017 | train_acc=0.605 val_acc=0.522 train_loss=1.123 val_loss=1.360
+epoch 018 | train_acc=0.610 val_acc=0.526 train_loss=1.098 val_loss=1.366
+epoch 019 | train_acc=0.617 val_acc=0.519 train_loss=1.092 val_loss=1.372
+epoch 020 | train_acc=0.610 val_acc=0.515 train_loss=1.116 val_loss=1.395
+epoch 021 | train_acc=0.654 val_acc=0.538 train_loss=0.998 val_loss=1.317
+epoch 022 | train_acc=0.623 val_acc=0.522 train_loss=1.058 val_loss=1.400
+epoch 023 | train_acc=0.599 val_acc=0.501 train_loss=1.122 val_loss=1.478
+epoch 024 | train_acc=0.661 val_acc=0.532 train_loss=0.975 val_loss=1.350
+
+Confusion matrix on validation set:
+[[589  30  33  53  68  22   8  19  82  73]
+ [ 42 654  10  39  15  12  12  12  33 198]
+ [ 71  15 372 122 197  90  66  46  14  34]
+ [ 26  18  68 419  62 177  76  29  14  61]
+ [ 49  13 137  70 539  61  67  50  10  28]
+ [ 17  10  66 266  81 428  59  51   9  36]
+ [  6   7  78 139 101  93 493  21  10  39]
+ [ 30  11  38  68 119  76  14 586   4  65]
+ [129  60  13  41  47  19   8  13 576 121]
+ [ 39 117   7  32  21  17   9  18  22 665]]

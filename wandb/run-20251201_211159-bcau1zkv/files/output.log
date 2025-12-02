@@ -1,0 +1,32 @@
+epoch 000 | train_acc=0.854 val_acc=0.850 train_loss=0.413 val_loss=0.419
+epoch 001 | train_acc=0.878 val_acc=0.869 train_loss=0.346 val_loss=0.362
+epoch 002 | train_acc=0.882 val_acc=0.870 train_loss=0.327 val_loss=0.354
+epoch 003 | train_acc=0.894 val_acc=0.877 train_loss=0.298 val_loss=0.333
+epoch 004 | train_acc=0.903 val_acc=0.883 train_loss=0.272 val_loss=0.315
+epoch 005 | train_acc=0.907 val_acc=0.887 train_loss=0.259 val_loss=0.310
+epoch 006 | train_acc=0.904 val_acc=0.884 train_loss=0.264 val_loss=0.318
+epoch 007 | train_acc=0.914 val_acc=0.888 train_loss=0.238 val_loss=0.303
+epoch 008 | train_acc=0.919 val_acc=0.894 train_loss=0.224 val_loss=0.289
+epoch 009 | train_acc=0.919 val_acc=0.891 train_loss=0.220 val_loss=0.295
+epoch 010 | train_acc=0.924 val_acc=0.891 train_loss=0.210 val_loss=0.291
+epoch 011 | train_acc=0.929 val_acc=0.898 train_loss=0.198 val_loss=0.284
+epoch 012 | train_acc=0.927 val_acc=0.890 train_loss=0.198 val_loss=0.296
+epoch 013 | train_acc=0.929 val_acc=0.891 train_loss=0.193 val_loss=0.298
+epoch 014 | train_acc=0.935 val_acc=0.895 train_loss=0.178 val_loss=0.292
+epoch 015 | train_acc=0.937 val_acc=0.894 train_loss=0.175 val_loss=0.292
+epoch 016 | train_acc=0.942 val_acc=0.895 train_loss=0.166 val_loss=0.282
+epoch 017 | train_acc=0.945 val_acc=0.900 train_loss=0.156 val_loss=0.282
+epoch 018 | train_acc=0.944 val_acc=0.894 train_loss=0.154 val_loss=0.290
+epoch 019 | train_acc=0.951 val_acc=0.901 train_loss=0.139 val_loss=0.281
+
+Confusion matrix on validation set:
+[[1002    1   24   26    2    2   95    0    2    0]
+ [   3 1160    0   15    0    0    1    0    0    0]
+ [   8    1 1066    6   81    0   51    0    0    0]
+ [  23   15   13 1061   37    0   29    0    2    0]
+ [   3    3  138   26  950    0   57    0    0    0]
+ [   0    0    1    0    0 1185    0   30    2    9]
+ [ 128    1  123   24   78    0  860    0    2    0]
+ [   0    0    0    0    0   17    0 1161    0   31]
+ [   4    1    7    5    4    1    9    3 1146    1]
+ [   0    1    0    0    0    5    0   41    0 1217]]
