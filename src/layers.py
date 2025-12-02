@@ -1,15 +1,27 @@
 import numpy as np
 from typing import List
-from .activations import relu, relu_grad, tanh, tanh_grad
+from .activations import relu, relu_grad, tanh, tanh_grad, identity, identity_grad
 
 _ACT = {
     "relu": (relu, relu_grad),
     "tanh": (tanh, tanh_grad),
-    "linear": (lambda x: x, lambda x: np.ones_like(x)),
+    "identity": (identity, identity_grad)
 }
 
+
+def dropout(x, drop_prob, seed=None):
+    if drop_prob <= 0.0:
+        return x, None
+    if seed is not None:
+        rng = np.random.default_rng(seed)
+    else:
+        rng = np.random.default_rng()
+    mask = rng.random(x.shape) > drop_prob
+    out = x * mask / (1.0 - drop_prob)
+    return out, mask
+
+
 class Dense:
-   
     def __init__(self, in_dim: int, out_dim: int, activation: str = "relu", weight_init: str = "he"):
         self.in_dim, self.out_dim = in_dim, out_dim
         self.act_name = activation
@@ -22,26 +34,44 @@ class Dense:
             self.W = np.random.uniform(-lim, lim, size=(in_dim, out_dim))
         else:
             self.W = np.random.randn(in_dim, out_dim) * 0.01
+
         self.b = np.zeros((1, out_dim))
+
         self._x = None
         self._z = None
+        self._drop_mask = None
+        self.dropout_prob = 0.0 
 
-    def forward(self, x: np.ndarray) -> np.ndarray:
+    def forward(self, x: np.ndarray, train: bool = False) -> np.ndarray:
         self._x = x
         self._z = x @ self.W + self.b
-        return self.f(self._z)
+        h = self.f(self._z)
+
+        # Apply dropout if in training mode
+        if train and self.dropout_prob > 0.0:
+            h, mask = dropout(h, self.dropout_prob)
+            self._drop_mask = mask
+        else:
+            self._drop_mask = None
+
+        return h
 
     def backward(self, grad_out: np.ndarray, l2: float = 0.0):
         if self._x is None or self._z is None:
-            raise ValueError("Dense.backward called before forward; no cached input/activation found. Run forward(...) before backward(...).")
+            raise ValueError("Dense.backward called before forward.")
+
+        # Apply dropout mask on backward
+        if self._drop_mask is not None:
+            grad_out = grad_out * self._drop_mask / (1.0 - self.dropout_prob)
+
         grad_z = grad_out * self.fprime(self._z)
         dW = self._x.T @ grad_z + l2 * self.W
         db = np.sum(grad_z, axis=0, keepdims=True)
         dx = grad_z @ self.W.T
         return dx, {"W": dW, "b": db}
 
+
 class FFNN:
-    
     def __init__(self, dims: List[int], activations: List[str], weight_init: str = "he"):
         assert len(dims) - 1 == len(activations), "Provide activations per layer."
         self.layers = [
@@ -49,10 +79,10 @@ class FFNN:
             for i in range(len(activations))
         ]
 
-    def forward(self, x: np.ndarray) -> np.ndarray:
+    def forward(self, x: np.ndarray, train: bool = False) -> np.ndarray:
         h = x
         for L in self.layers:
-            h = L.forward(h)
+            h = L.forward(h, train=train)
         return h
 
     def backward(self, grad_last: np.ndarray, l2: float = 0.0):
